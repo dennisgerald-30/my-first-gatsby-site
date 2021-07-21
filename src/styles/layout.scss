@@ -1,0 +1,133 @@
+/*.container {*/
+/*    margin: auto;*/
+/*    max-width: 500px;*/
+/*    font-family: sans-serif;*/
+/*}*/
+
+/*.heading {*/
+/*    color: rebeccapurple;*/
+/*}*/
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+.nav-link-item {
+    padding-right: 2rem;
+}
+.nav-link-text {
+    color: black;
+}
+
+.tags-li {
+  margin-bottom: .8125rem;
+}
+
+.tags-list {
+  list-style: none;
+  margin: 0 -.625rem;
+  padding: 0;
+}
+
+.tags-list-item {
+  display: inline-block;
+  margin: .625rem .3125rem;
+}
+
+.tags-list-item-link {
+  color: #5d93ff;
+  border-radius: 1.5rem;
+  margin-right: .5rem;
+  border: 1px solid #5d93ff;
+  padding: .5rem 1rem;
+}
+
+.photography-page {
+  .container-fluid {
+    background-color: #222222;
+  }
+  .page-title {
+    display: none;
+  }
+  .dddGUl {
+    overflow: hidden;
+
+    .gatsby-image-wrapper {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 1;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.4;
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+
+    }
+  }
+
+}
+
+.container {
+    .blog-section {
+      margin-bottom: 2.03125rem;
+
+      &-header {
+
+        &-title {
+          font-size: 1.6875rem;
+          line-height: 2.4375rem;
+          margin-top: 0;
+          margin-bottom: .8125rem;
+
+          a {
+            color: #222222;
+          }
+        }
+
+        &-tag {
+          font-size: .875rem;
+          color: #f7a046;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+
+        &-date {
+          font-size: .875rem;
+          color: #222;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin-right: 10px;
+        }
+      }
+
+      &-description {
+        font-size: 1rem;
+        line-height: 1.625rem;
+        margin-bottom: 1.21875rem;
+      }
+    }
+
+    .code-block {
+      color: white;
+      background: black;
+      padding: 25px
+    }
+
+    .code-block:hover {
+      cursor: pointer;
+    }
+
+    .code-block__copy {
+      float: right;
+    }
+
+    .netflix-icon {
+      color: #e50914;
+      width: 25px;
+      height: 25px;
+    }
+}
+

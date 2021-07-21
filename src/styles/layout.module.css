@@ -20,11 +20,7 @@
 /*}*/
 
 .blog-section {
-    margin-bottom: 25px;
-}
-
-.blog-section:nth-child(even) {
-    background-color: #F0F0F0;
+    margin-bottom: 2.03125rem;
 }
 
 .blog-section-header {
@@ -32,13 +28,50 @@
 }
 
 .blog-section-header-title {
-
+    font-size: 1.6875rem;
+    line-height: 2.4375rem;
+    margin-top: 0;
+    margin-bottom: .8125rem;
+    color: #222222;
 }
 
 .blog-section-header-tag {
-
+    font-size: .875rem;
+    color: #f7a046;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .blog-section-header-date {
+    font-size: .875rem;
+    color: #222;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
 
+.blog-section-description {
+    font-size: 1rem;
+    line-height: 1.625rem;
+    margin-bottom: 1.21875rem;
+}
+
+.code-block {
+    color: white;
+    background: black;
+    padding: 25px
+}
+
+.code-block:hover {
+    cursor: pointer;
+}
+
+.code-block__copy {
+    float: right;
+}
+
+.netflix-icon {
+    color: #e50914;
+    width: 25px;
+    height: 25px;
 }

@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
-import Layout from "./layout"
-import CodeBlock from './codeblock'
+import Layout from "../components/layout"
+import CodeBlock from '../components/codeblock'
 
 const kebabCase = require('kebab-case')
 const shortcodes = { Link, CodeBlock } // Provide common components here
