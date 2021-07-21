@@ -8,7 +8,7 @@ const PhotographyPage = ({ data }) => {
     // `images` is an array of objects with `thumb` and `full`
     return (
         <Layout pageTitle="Vini's Photography" pageName="photography-page" containerClass="container-fluid" navStyle="dark" pageDescription="Photography of different seasons in Rochester, New York.">
-            <Gallery images={images} gutter=".25rem" mdColWidth="25" lightboxOptions={{"enableZoom": false}}/>
+            <Gallery images={images} gutter=".25rem" colWidth="50" mdColWidth="25" lightboxOptions={{"enableZoom": false}}/>
         </Layout>
     )
 }
