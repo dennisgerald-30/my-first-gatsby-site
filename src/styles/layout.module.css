@@ -1,0 +1,44 @@
+/*.container {*/
+/*    margin: auto;*/
+/*    max-width: 500px;*/
+/*    font-family: sans-serif;*/
+/*}*/
+
+/*.heading {*/
+/*    color: rebeccapurple;*/
+/*}*/
+/*.nav-links {*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*    padding-left: 0;*/
+/*}*/
+/*.nav-link-item {*/
+/*    padding-right: 2rem;*/
+/*}*/
+/*.nav-link-text {*/
+/*    color: black;*/
+/*}*/
+
+.blog-section {
+    margin-bottom: 25px;
+}
+
+.blog-section:nth-child(even) {
+    background-color: #F0F0F0;
+}
+
+.blog-section-header {
+
+}
+
+.blog-section-header-title {
+
+}
+
+.blog-section-header-tag {
+
+}
+
+.blog-section-header-date {
+
+}
