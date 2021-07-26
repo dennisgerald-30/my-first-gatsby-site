@@ -1,31 +1,62 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { graphql } from 'gatsby'
-import Gallery from "@browniebroke/gatsby-image-gallery"
 import Layout from "../components/layout"
+import ReactBnbGallery from "react-bnb-gallery"
+import 'react-bnb-gallery/dist/style.css'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-const PhotographyPage = ({ data }) => {
-    const images = data.allFile.edges.map(({ node }) => node.childImageSharp)
-    // `images` is an array of objects with `thumb` and `full`
+const GalleryExample = ({ data }) => {
+    const Photos = data.allFile.edges.map(({ node }) => node.publicURL)
+    const [isOpen, setIsOpen] = useState(false);
+    const [activePhotoIndex, setActivePhotoIndex] = useState(0)
+
     return (
-        <Layout pageTitle="Vini's Photography" pageName="photography-page" containerClass="container-fluid" navStyle="dark" pageDescription="Photography of different seasons in Rochester, New York.">
-            <Gallery images={images} gutter=".25rem" colWidth="50" mdColWidth="25" lightboxOptions={{"enableZoom": false}}/>
-        </Layout>
-    )
-}
-
-export const pageQuery = graphql`
-  query ImagesForGallery {
-    allFile(filter: {extension: {ne: "mdx"}}) {
-        edges {
-          node {
-            childImageSharp {
-              thumb: gatsbyImageData(width: 358, height: 240, placeholder: BLURRED)
-              full: gatsbyImageData(layout: FULL_WIDTH)
+        <Layout pageTitle="Dentist Photography" pageName="photography-page" containerClass="container-fluid" navStyle="dark" pageDescription="Photography of different seasons in Rochester, New York.">
+            <div className="image-grid">
+            {
+                data.allFile.edges.map( (edge, index) =>
+                    <div className="image-container d-inline-block">
+                        <div className="image-container-wrapper d-inline-block">
+                            <a onClick={() => {setIsOpen(true); setActivePhotoIndex(index)}}>
+                                <GatsbyImage alt="" image={getImage(edge.node)} />
+                            </a>
+                        </div>
+                    </div>
+                )
             }
-          }
+            </div>
+                <ReactBnbGallery
+                    show={isOpen}
+                    photos={Photos}
+                    onClose={() => setIsOpen(false)}
+                    activePhotoIndex={activePhotoIndex}
+                />
+        </Layout>
+    );
+};
+
+export const imageQuery = graphql`
+query ImagesForGallery {
+  allFile(
+    filter: {extension: {ne: "mdx"}, sourceInstanceName: {eq: "photography"}}
+  ) {
+    edges {
+      node {
+        publicURL
+        base
+        childImageSharp {
+          gatsbyImageData(
+            width: 358
+            height: 240
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
+      }
     }
   }
+}
+
 `
 
-export default PhotographyPage
+export default GalleryExample

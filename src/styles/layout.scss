@@ -49,23 +49,45 @@
   .page-title {
     display: none;
   }
-  .dddGUl {
+
+  .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .image-container {
+    flex-basis: 25%;
+    max-width: 25%;
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+  }
+  .image-container-wrapper {
+    overflow: hidden;
+    margin: 0.25rem;
+    background: rgb(238, 238, 238);
+  }
+
+  .gatsby-image-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1;
+    cursor: pointer;
     overflow: hidden;
 
-    .gatsby-image-wrapper {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      z-index: 1;
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.4;
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-      }
-
+    &:hover {
+      opacity: 0.8;
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      transform: scale(1.1);
     }
+
   }
 
 }
