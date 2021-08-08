@@ -1,0 +1,227 @@
+@import "variables";
+
+.home-page {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  .section {
+    padding: 50px 20px;
+
+    &:nth-child(2n) {
+      background-color: snow;
+    }
+  }
+
+  .section-head {
+    margin-bottom: 20px
+  }
+
+  .line-heading,
+  h2 {
+    display: inline-block;
+    position: relative;
+    font-family: $secondary-font-family;
+    font-size: 60px;
+
+    &:after {
+      content: "";
+      width: 25px;
+      height: 1px;
+      display: inline-block;
+      position: absolute;
+      background: #ef5826;
+      top: 100%;
+      left: 0
+    }
+  }
+
+  .banner-section {
+    position: relative;
+    height: 100vh;
+
+    &:after {
+      content: "";
+      background: rgba(0,0,0,.55);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0
+    }
+
+    .gatsby-image-wrapper {
+      height: 100vh;
+      width: 100%;
+    }
+
+    .banner-details {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transform: translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-50%);
+      -moz-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+      -o-transform: translate(-50%,-50%);
+      width: 90%;
+      color: #fff;
+
+      .intro-text {
+        font-size: 25px;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 4px #333
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 1px 1px 4px #333;
+      }
+
+      .highlighter-banner,
+      .highlighter-sub-data{
+        font-family: "Montez";
+        font-size: 80px;
+        color: #FF4500;
+      }
+
+      .highlighter-sub-data {
+        font-size: 40px;
+      }
+
+      .sub-data {
+        padding: 0;
+        display: flex;
+        list-style: none;
+        margin: 0 0 30px;
+
+        li {
+          padding: 0 15px;
+          position: relative;
+          font-size: 18px;
+          text-shadow: 1px 1px 4px #333;
+
+          &:after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            display: inline-block;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            margin-top: -3px;
+            right: -3px;
+            border-radius: 50%
+          }
+
+          &:last-child:after {
+            display: none
+          }
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover
+    }
+  }
+
+  .blogs-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 -10px;
+
+    .item {
+      width: 100%;
+      padding: 0 10px;
+      margin-bottom: 20px;
+
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+
+      .blog-list-title {
+        font-size: 1.5rem;
+
+        a {
+          color: #4e6479;
+        }
+      }
+    }
+  }
+
+  .see-more {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+
+    a {
+      text-decoration: none;
+      width: auto;
+      height: auto;
+      border: 1px solid #333;
+      color: #333;
+      position: relative;
+      overflow: hidden;
+      padding: 8px 20px;
+      display: inline-block;
+      font-weight: 600;
+
+      &:after {
+        content: "";
+        background: #333;
+        position: absolute;
+        top: -100%;
+        left: 0;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        height: 100%;
+        width: 100%;
+        z-index: 0
+      }
+
+      &:hover {
+        color: #ffffff;
+
+        &:after {
+          top: 0;
+        }
+      }
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  .photos-item {
+    .slick-dots {
+      position: initial;
+    }
+
+    .slick-slide {
+      padding: 5px;
+    }
+  }
+}
+
+
+

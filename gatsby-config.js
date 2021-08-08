@@ -50,5 +50,17 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+            'charmonman',
+            `monte carlo`,
+            'montez',
+            'monda'
+        ],
+        display: 'swap'
+      }
+    }
   ],
 };

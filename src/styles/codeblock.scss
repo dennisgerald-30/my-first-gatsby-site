@@ -1,0 +1,24 @@
+.code-block {
+  &:hover {
+    cursor: pointer;
+  }
+  textarea {
+    resize: none;
+    background-color: aliceblue;
+    padding: 15px 15px 0;
+    color: #e83e8c;
+    font-size: 87.5%;
+    word-wrap: break-word;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    border: none;
+    width: 100%;
+    line-height: initial;
+  }
+
+  &__copy {
+    position: absolute;
+    left: 80%;
+    margin-top: 10px;
+    color: crimson;
+  }
+}

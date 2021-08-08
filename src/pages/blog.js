@@ -1,6 +1,8 @@
 import React, { useState, useEffect} from "react";
 import Layout from '../components/layout'
 import {graphql, Link} from 'gatsby'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
 
 const kebabCase = require('kebab-case');
 
@@ -44,36 +46,40 @@ const BlogPage = ({ data, pageContext }) => {
         setHasMore(isMore)
     }, [list]) //eslint-disable-line
 
+    const pageTitle = category || tag ? category || tag : "Blog Page"
 
     return (
-        <Layout pageTitle={category || tag} pageName="blog-page" pageDescription="Description about Blogs">
+        <Layout pageTitle={pageTitle} pageClass="blog-page" pageDescription="Description about Blogs">
+            <div className="container">
+                <h1 className="page-header">Blogs</h1>
                 {
                     list.map(edge => (
-
                         <div className="blog-section" key={edge.node.slug}>
                             <div className="blog-section-header">
-                                <span className="blog-section-header-date">{edge.node.frontmatter.date}</span>
+                                <span className="blog-section-header-date"> <FontAwesomeIcon icon={faCalendarAlt} /> {edge.node.frontmatter.date}</span>
                                 <Link className="blog-section-header-tag" to={`/category/${kebabCase(edge.node.frontmatter.category)}`}>
                                     {edge.node.frontmatter.category}
                                 </Link>
                             </div>
                             <h2 className="blog-section-header-title">
                                 <Link to={`/blog/${edge.node.slug}`}>
-                                {edge.node.frontmatter.title}
+                                    {edge.node.frontmatter.title}
                                 </Link>
                             </h2>
                             <p className="blog-section-description">{edge.node.frontmatter.description}</p>
                             <Link to={`/blog/${edge.node.slug}`}>
                                 Read
                             </Link>
+                            <hr/>
                         </div>
                     ))
                 }
                 { hasMore ? (
-                    <button onClick={handleLoadMore} className="btn btn-secondary">Load More</button>
+                    <button onClick={handleLoadMore} className="btn btn-secondary text-center">Load More</button>
                 ) : (
-                    <p>*** No more results ***</p>
+                    <p className="text-center">*** No more results ***</p>
                 )}
+            </div>
         </Layout>
     )
 }

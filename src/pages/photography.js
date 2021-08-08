@@ -11,19 +11,21 @@ const GalleryExample = ({ data }) => {
     const [activePhotoIndex, setActivePhotoIndex] = useState(0)
 
     return (
-        <Layout pageTitle="Dentist Photography" pageName="photography-page" containerClass="container-fluid" navStyle="dark" pageDescription="Photography of different seasons in Rochester, New York.">
-            <div className="image-grid">
+        <Layout pageTitle="Dentist Photography" pageClass="photography-page" navStyle="dark" pageDescription="Photography of different seasons in Rochester, New York.">
+            <div className="container-fluid">
+                <div className="image-grid">
             {
                 data.allFile.edges.map( (edge, index) =>
                     <div className="image-container d-inline-block">
                         <div className="image-container-wrapper d-inline-block">
-                            <a onClick={() => {setIsOpen(true); setActivePhotoIndex(index)}}>
+                            <a role="button" tabIndex="0" onClick={() => {setIsOpen(true); setActivePhotoIndex(index)}} onKeyPress={() => {setIsOpen(true); setActivePhotoIndex(index)}}>
                                 <GatsbyImage alt="" image={getImage(edge.node)} />
                             </a>
                         </div>
                     </div>
                 )
             }
+                </div>
             </div>
                 <ReactBnbGallery
                     show={isOpen}

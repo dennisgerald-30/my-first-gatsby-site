@@ -18,7 +18,7 @@ export default function PostPageTemplate({ data: { mdx } }) {
             <div className="tags-li">
                 <ul className="tags-list">
                     {mdx.frontmatter.tags.map( tag => (
-                        <li className="tags-list-item">
+                        <li className="tags-list-item" key={tag}>
                             <a href={`/tag/${kebabCase(tag)}`} className="tags-list-item-link">{tag}</a>
                         </li>
                     ))}

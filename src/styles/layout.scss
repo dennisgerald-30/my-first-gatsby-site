@@ -1,12 +1,16 @@
-/*.container {*/
-/*    margin: auto;*/
-/*    max-width: 500px;*/
-/*    font-family: sans-serif;*/
-/*}*/
+@import "variables";
 
-/*.heading {*/
-/*    color: rebeccapurple;*/
-/*}*/
+body {
+  font-family: $primary-font-family;
+}
+.navbar {
+  background: rgba(23,43,66,.72);
+
+  .navbar-brand,
+  .nav-link {
+      color: #ffffff !important;
+  }
+}
 .nav-links {
     display: flex;
     list-style: none;
@@ -40,6 +44,13 @@
   margin-right: .5rem;
   border: 1px solid #5d93ff;
   padding: .5rem 1rem;
+}
+
+.blog-page {
+  .page-header {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
 }
 
 .photography-page {
@@ -130,20 +141,6 @@
         line-height: 1.625rem;
         margin-bottom: 1.21875rem;
       }
-    }
-
-    .code-block {
-      color: white;
-      background: black;
-      padding: 25px
-    }
-
-    .code-block:hover {
-      cursor: pointer;
-    }
-
-    .code-block__copy {
-      float: right;
     }
 
     .netflix-icon {
