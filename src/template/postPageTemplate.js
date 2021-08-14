@@ -5,24 +5,33 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import CodeBlock from '../components/codeblock'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
 
 const kebabCase = require('kebab-case')
 const shortcodes = { Link, CodeBlock } // Provide common components here
 
 export default function PostPageTemplate({ data: { mdx } }) {
     return (
-        <Layout pageTitle={mdx.frontmatter.title}>
-            <MDXProvider components={shortcodes}>
-                <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
-            </MDXProvider>
-            <div className="tags-li">
-                <ul className="tags-list">
-                    {mdx.frontmatter.tags.map( tag => (
-                        <li className="tags-list-item" key={tag}>
-                            <a href={`/tag/${kebabCase(tag)}`} className="tags-list-item-link">{tag}</a>
-                        </li>
-                    ))}
-                </ul>
+        <Layout pageTitle={mdx.frontmatter.title} pageClass="post-page">
+            <div className="container">
+                <span className="blog-section-header-date"> <FontAwesomeIcon icon={faCalendarAlt} /> {mdx.frontmatter.date}</span>
+                <Link className="blog-section-header-tag" to={`/category/${kebabCase(mdx.frontmatter.category)}`}>
+                    {mdx.frontmatter.category}
+                </Link>
+                <h1 className="page-header mb-4">{mdx.frontmatter.title}</h1>
+                <MDXProvider components={shortcodes}>
+                    <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
+                </MDXProvider>
+                <div className="tags-li mt-4">
+                    <ul className="tags-list">
+                        {mdx.frontmatter.tags.map( tag => (
+                            <li className="tags-list-item" key={tag}>
+                                <a href={`/tag/${kebabCase(tag)}`} className="tags-list-item-link">{tag}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </Layout>
     )
@@ -34,8 +43,10 @@ export const pageQuery = graphql`
       id
       body
       frontmatter {
+        date
         title
         tags
+        category
       }
     }
   }

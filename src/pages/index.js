@@ -8,7 +8,7 @@ import BannerSection from "../components/bannerSection"
 
 const IndexPage = () => {
     return (
-        <Layout pageDescription="My site home page" pageClass="home-page">
+        <Layout pageTitle="Welcome to Tooth and Keys" pageDescription="My site home page" pageClass="home-page">
             <BannerSection />
             <BlogSection />
             <PhotoSection />

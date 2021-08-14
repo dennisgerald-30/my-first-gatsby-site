@@ -1,10 +1,7 @@
 import React, { useState, useEffect} from "react";
 import Layout from '../components/layout'
-import {graphql, Link} from 'gatsby'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
-
-const kebabCase = require('kebab-case');
+import {graphql} from 'gatsby'
+import Blogs from "../components/blogs";
 
 const BlogPage = ({ data, pageContext }) => {
 
@@ -13,14 +10,16 @@ const BlogPage = ({ data, pageContext }) => {
     // Array of all news articles
     const allNews = data.allMdx.edges
 
+    const blogsOffset = 2;
+
     // State for the list
-    const [list, setList] = useState([...allNews.slice(0, 10)])
+    const [list, setList] = useState([...allNews.slice(0, blogsOffset)])
 
     // State to trigger oad more
     const [loadMore, setLoadMore] = useState(false)
 
     // State of whether there is more to load
-    const [hasMore, setHasMore] = useState(allNews.length > 10)
+    const [hasMore, setHasMore] = useState(allNews.length > blogsOffset)
 
     // Load more button click
     const handleLoadMore = () => {
@@ -33,7 +32,7 @@ const BlogPage = ({ data, pageContext }) => {
             const currentLength = list.length
             const isMore = currentLength < allNews.length
             const nextResults = isMore
-                ? allNews.slice(currentLength, currentLength + 10)
+                ? allNews.slice(currentLength, currentLength + blogsOffset)
                 : []
             setList([...list, ...nextResults])
             setLoadMore(false)
@@ -46,34 +45,18 @@ const BlogPage = ({ data, pageContext }) => {
         setHasMore(isMore)
     }, [list]) //eslint-disable-line
 
-    const pageTitle = category || tag ? category || tag : "Blog Page"
+    const defaultText = 'Blogs'
+    const isCategoryOrTagAvailable = category || tag
+    const pageTitle = isCategoryOrTagAvailable ? `${isCategoryOrTagAvailable} | ${defaultText}` : defaultText
+    const pageHeader = isCategoryOrTagAvailable ? isCategoryOrTagAvailable : defaultText
 
     return (
         <Layout pageTitle={pageTitle} pageClass="blog-page" pageDescription="Description about Blogs">
             <div className="container">
-                <h1 className="page-header">Blogs</h1>
-                {
-                    list.map(edge => (
-                        <div className="blog-section" key={edge.node.slug}>
-                            <div className="blog-section-header">
-                                <span className="blog-section-header-date"> <FontAwesomeIcon icon={faCalendarAlt} /> {edge.node.frontmatter.date}</span>
-                                <Link className="blog-section-header-tag" to={`/category/${kebabCase(edge.node.frontmatter.category)}`}>
-                                    {edge.node.frontmatter.category}
-                                </Link>
-                            </div>
-                            <h2 className="blog-section-header-title">
-                                <Link to={`/blog/${edge.node.slug}`}>
-                                    {edge.node.frontmatter.title}
-                                </Link>
-                            </h2>
-                            <p className="blog-section-description">{edge.node.frontmatter.description}</p>
-                            <Link to={`/blog/${edge.node.slug}`}>
-                                Read
-                            </Link>
-                            <hr/>
-                        </div>
-                    ))
-                }
+                <h1 className="page-header">{pageHeader}</h1>
+
+                <Blogs readButtonVisible dateCategoryPlacement="top" category={category} tag={tag} data={list}/>
+
                 { hasMore ? (
                     <button onClick={handleLoadMore} className="btn btn-secondary text-center">Load More</button>
                 ) : (

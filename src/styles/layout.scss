@@ -100,7 +100,20 @@ body {
     }
 
   }
+}
 
+.gallery {
+  .gallery-photos {
+    max-width: 135vh !important;
+  }
+  .gallery-control {
+    border: none;
+  }
+  img {
+    &.thumbnail {
+      opacity: 1 !important;
+    }
+  }
 }
 
 .container {
@@ -150,3 +163,33 @@ body {
     }
 }
 
+.blogs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 -10px;
+
+  &.flex {
+    display: flex;
+    flex-wrap: wrap;
+
+    .item {
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+    }
+  }
+
+  .item {
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+
+    .blog-list-title {
+      font-size: 1.5rem;
+
+      a {
+        color: #4e6479;
+      }
+    }
+  }
+}

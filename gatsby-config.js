@@ -61,6 +61,17 @@ module.exports = {
         ],
         display: 'swap'
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Tooth and Keys`,
+        short_name: `Tooth and Keys`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#333`,
+        icon: `src/images/icon.png`
+      }
+    },
   ],
 };
