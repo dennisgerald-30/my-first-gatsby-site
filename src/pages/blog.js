@@ -78,6 +78,14 @@ export const query = graphql`
               title
               tags
               category
+              featuredImage{
+                  childImageSharp {
+                    gatsbyImageData(
+                       placeholder: BLURRED
+                       formats: [AUTO, WEBP, AVIF]
+                     )
+                  }
+                }
             }
             slug
           }

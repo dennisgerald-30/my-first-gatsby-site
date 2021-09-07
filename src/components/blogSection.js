@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Blogs from "./blogs";
-import {graphql, useStaticQuery} from "gatsby";
+import Blogs from "./blogs"
+import {graphql, useStaticQuery} from "gatsby"
 
 const BlogSection = () => {
 
@@ -14,7 +14,15 @@ const BlogSection = () => {
                   description
                   title
                   tags
-                  category  
+                  category 
+                  featuredImage{
+                      childImageSharp {
+                        gatsbyImageData(
+                           placeholder: BLURRED
+                           formats: [AUTO, WEBP, AVIF]
+                         )
+                      }
+                    } 
                 }
                 slug
               }
