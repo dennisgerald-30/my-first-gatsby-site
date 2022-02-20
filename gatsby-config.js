@@ -15,9 +15,9 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
+    "gatsby-plugin-mdx",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -30,6 +30,13 @@ module.exports = {
       options: {
         name: `photography`,
         path: `${__dirname}/photography`,
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `blog-images`,
+        path: `${__dirname}/blog/blog-images`,
       }
     },
     {

@@ -25,7 +25,7 @@ const Layout = ({ pageTitle, pageDescription, pageName, pageClass, navStyle="dar
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <div>
+            <div className="main-content">
                 {children}
             </div>
         </main>

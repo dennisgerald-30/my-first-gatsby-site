@@ -3,6 +3,11 @@
 body {
   font-family: $primary-font-family;
 }
+
+.text-small {
+  font-size: 16px;
+}
+
 .navbar {
   background: rgba(23,43,66,.95);
 
@@ -23,6 +28,10 @@ body {
     color: black;
 }
 
+.post-page .main-content {
+  background-color: #E8E8E8;
+}
+
 .tags-li {
   margin-bottom: .8125rem;
 }
@@ -40,6 +49,7 @@ body {
 
 .tags-list-item-link {
   color: #5d93ff;
+  background-color: #ffffff;
   border-radius: 1.5rem;
   margin-right: .5rem;
   border: 1px solid #5d93ff;
@@ -138,6 +148,7 @@ body {
           color: #f7a046;
           font-weight: 600;
           text-transform: uppercase;
+          margin-bottom: 1rem;
         }
 
         &-date {
@@ -173,8 +184,8 @@ body {
     flex-wrap: wrap;
 
     .item {
-      @media (min-width: 768px) {
-        width: 50%;
+      @media (max-width: 767px) {
+        width: 100%;
       }
     }
   }

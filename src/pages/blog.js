@@ -10,7 +10,7 @@ const BlogPage = ({ data, pageContext }) => {
     // Array of all news articles
     const allNews = data.allMdx.edges
 
-    const blogsOffset = 2;
+    const blogsOffset = 10;
 
     // State for the list
     const [list, setList] = useState([...allNews.slice(0, blogsOffset)])

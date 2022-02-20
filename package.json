@@ -35,8 +35,10 @@
     "gatsby-plugin-page-creator": "^3.9.0",
     "gatsby-plugin-react-helmet": "^4.9.0",
     "gatsby-plugin-sass": "^4.9.0",
-    "gatsby-plugin-sharp": "^3.8.0",
+    "gatsby-plugin-sharp": "^3.14.3",
+    "gatsby-remark-images": "^6.2.0",
     "gatsby-source-filesystem": "^3.8.0",
+    "gatsby-transformer-remark": "^5.2.0",
     "gatsby-transformer-sharp": "^3.9.0",
     "kebab-case": "^1.0.1",
     "lodash.throttle": "^4.1.1",
@@ -52,6 +54,7 @@
   },
   "devDependencies": {
     "@iconify-icons/mdi": "^1.1.15",
+    "@iconify-icons/whh": "^1.1.0",
     "@iconify/react": "^1.1.4"
   }
 }
