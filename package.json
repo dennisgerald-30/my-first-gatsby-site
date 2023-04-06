@@ -26,6 +26,7 @@
     "bootstrap": "^4.6.0",
     "gatsby": "^3.10.0",
     "gatsby-image": "^3.9.0",
+    "gatsby-plugin-canonical-urls": "^5.8.0",
     "gatsby-plugin-gatsby-cloud": "^2.10.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^3.10.0",
